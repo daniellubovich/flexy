@@ -1,0 +1,328 @@
+:root {
+  --section-fade-in-length: 1.75s;
+  --footer-fade-in-delay: 0.5s;
+}
+
+#application {
+  display: flex;
+  flex-direction: column;
+  padding: 0 18%;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+  /* For small screens, let's roll back the padding a bit. */
+  #application {
+    padding: 0 8px;
+  }
+}
+
+p,
+a,
+code,
+pre,
+input,
+textarea,
+select {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    padding-bottom: 4px;
+  }
+}
+
+a {
+  color: #477e91;
+  text-decoration: none;
+  display: inline-block;
+  padding-left: 0;
+  transition: padding 0.1s;
+}
+
+li > a:hover {
+  padding-left: 4px;
+  transition: 0.25s;
+}
+
+.section {
+  opacity: 0;
+}
+
+.section:nth-child(1) {
+  animation: fadeIn var(--section-fade-in-length, 1.75s) forwards;
+}
+.section:nth-child(2) {
+  animation: fadeIn var(--section-fade-in-length, 1.75s) forwards;
+  animation-delay: 0.25s;
+}
+.section:nth-child(3) {
+  animation: fadeIn var(--section-fade-in-length, 1.75s) forwards;
+  animation-delay: 0.5s;
+}
+
+.footer {
+  opacity: 0;
+  animation: fadeIn var(--section-fade-in-length, 1.75s) forwards;
+  animation-delay: var(--footer-fade-in-delay, 0.75s);
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  }
+  .footer p {
+    margin: 4px;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.sandbox {
+  width: 100%;
+  flex-wrap: wrap;
+
+  .sandbox-container {
+    flex: 1 1 400px;
+    position: relative;
+
+    &:has(.sandbox-container-inner.flex-column) {
+      .dir-icon {
+        transform: rotate(90deg);
+        transition: 0.25s;
+      }
+    }
+    &:has(.sandbox-container-inner.flex-row) {
+      .dir-icon {
+        transform: rotate(0deg);
+        transition: 0.25s;
+      }
+    }
+    &:has(.sandbox-container-inner.flex-row-reverse) {
+      .dir-icon {
+        transform: rotate(180deg);
+        transition: 0.25s;
+      }
+    }
+    &:has(.sandbox-container-inner.flex-column-reverse) {
+      .dir-icon {
+        transform: rotate(-90deg);
+        transition: 0.25s;
+      }
+    }
+
+    .dir-icon {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      background-color: white;
+      border-radius: 4px;
+      border: 1px black solid;
+      top: -10px;
+      right: -10px;
+      z-index: 1;
+    }
+  }
+
+  .sandbox-container-inner {
+    overflow: auto;
+    position: relative;
+    height: 300px;
+    padding: 0.25em;
+    background-color: white;
+    border: 2px black solid;
+    border-radius: 3px;
+
+    .sandbox-item {
+      min-width: 20px;
+      flex-basis: 50px;
+      padding: 0.25em;
+      border: 1px solid black;
+      border-radius: 3px;
+
+      .sandbox-item-name {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 0.75em;
+      }
+    }
+  }
+  .sandbox-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    flex: 1 1 20%;
+    background-color: white;
+    border-radius: 3px;
+
+    .flex-style-container {
+      display: flex;
+      gap: 1em;
+      flex-direction: row;
+
+      div {
+        flex: 1 1 auto;
+      }
+    }
+
+    label {
+      display: block;
+      margin-bottom: 2px;
+      font-family: monospace;
+    }
+
+    .sandbox-editor-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    select,
+    input {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .sandbox-section {
+      h1,
+      h3,
+      h4,
+      h2 {
+        margin: 0;
+        padding-bottom: 0.5em;
+      }
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+  }
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column-reverse {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.justify-content-flex-start {
+  justify-content: flex-start;
+}
+
+.justify-content-flex-end {
+  justify-content: flex-end;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.justify-content-space-around {
+  justify-content: space-around;
+}
+
+.align-items-flex-start {
+  align-items: flex-start;
+}
+
+.align-items-flex-end {
+  align-items: flex-end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-baseline {
+  align-items: baseline;
+}
+
+.align-items-stretch {
+  align-items: stretch;
+}
+
+.gap-1 {
+  gap: 1em;
+}
+
+.gap-2 {
+  gap: 2em;
+}
+
+.gap-3 {
+  gap: 3em;
+}
+
+.align-self-auto {
+  align-self: auto;
+}
+
+.align-self-flex-start {
+  align-self: flex-start;
+}
+
+.align-self-flex-end {
+  align-self: flex-end;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-baseline {
+  align-self: baseline;
+}
+
+.align-self-stretch {
+  align-self: stretch;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.border-bottom-dashed {
+  border-bottom: 1px dashed gray;
+}

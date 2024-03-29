@@ -1,0 +1,21 @@
+{
+  "name": "flexy",
+  "version": "1.0.0",
+  "description": "flexbox playground",
+  "main": "index.js",
+  "author": "Daniel Lubovich: <daniellubovich@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.18.3",
+    "prettier": "^3.2.5"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build": "mkdir -p dist && cp -avr src dist/src && cp index.html dist/ && echo 'Build complete!'"
+  },
+  "dependenciesMeta": {
+    "prettier@3.2.5": {
+      "unplugged": true
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta http-equiv="Content-Language" content="en" />
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <title id="title">Flex Playground - Daniel Lubovich</title>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "preact": "https://esm.sh/preact@10.19.2",
+          "preact/": "https://esm.sh/preact@10.19.2/",
+          "htm/preact": "https://esm.sh/htm@3.1.1/preact?external=preact"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import { render } from 'preact'
+      import { useReducer } from 'preact/hooks'
+      import { html } from 'htm/preact'
+      import TitleBar from './src/components/TitleBar.js'
+      import Sandbox from './src/components/Sandbox.js'
+      import Section from './src/components/Section.js'
+      import Footer from './src/components/Footer.js'
+
+      export function App() {
+        return html`
+          <div id="application">
+            <${TitleBar} title="Flex Playground" />
+            <${Section} >
+              <${Sandbox} />
+            </${Section}>
+            <${Footer} />
+          </div>
+        `
+      }
+
+      render(html`<${App} />`, document.body)
+    </script>
+
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+</html>
