@@ -24,7 +24,7 @@ export default class Sandbox extends Component {
   }
 
   addItem() {
-    if (this.state.itemCount === 10) return
+    if (this.state.itemCount === 20) return
     this.state.itemCount++
     this.state.items.push({
       id: this.state.itemCount,
