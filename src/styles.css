@@ -1,6 +1,7 @@
 :root {
   --section-fade-in-length: 1.75s;
   --footer-fade-in-delay: 0.5s;
+  --alt-background-color: #f0f0f0;
 }
 
 body {
@@ -167,16 +168,20 @@ li > a:hover {
     border-radius: 3px;
 
     .sandbox-item {
+      &:nth-child(odd) {
+        background-color: var(--alt-background-color, #f0f0f0);
+      }
       min-width: 20px;
       flex-basis: 50px;
-      padding: 0.25em;
+      padding: 0.5em;
+      box-sizing: border-box;
       border: 1px solid black;
       border-radius: 3px;
 
       .sandbox-item-name {
         display: inline-block;
         font-weight: bold;
-        font-size: 0.75em;
+        font-size: 1em;
       }
     }
   }
