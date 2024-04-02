@@ -3,12 +3,17 @@
   --footer-fade-in-delay: 0.5s;
 }
 
+body {
+  margin: 0;
+}
+
 #application {
   display: flex;
   flex-direction: column;
   padding: 0 18%;
   font-family: sans-serif;
   font-size: 14px;
+  height: 100vh;
 }
 
 @media screen and (max-width: 600px) {
@@ -54,6 +59,8 @@ li > a:hover {
 
 .section {
   opacity: 0;
+  overflow: auto;
+  flex: 0 1 auto;
 }
 
 .section:nth-child(1) {
@@ -108,6 +115,7 @@ li > a:hover {
   flex-wrap: wrap;
 
   .sandbox-container {
+    margin-top: 1em;
     flex: 1 1 400px;
     position: relative;
 
@@ -215,7 +223,6 @@ li > a:hover {
       h4,
       h2 {
         margin: 0;
-        padding-bottom: 0.5em;
       }
       display: flex;
       flex-direction: column;
@@ -319,10 +326,30 @@ li > a:hover {
   align-self: stretch;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
 .clickable {
   cursor: pointer;
 }
 
 .border-bottom-dashed {
   border-bottom: 1px dashed gray;
+}
+
+.padding-bottom-sm {
+  padding-bottom: 0.5em;
+}
+
+.padding-bottom-md {
+  padding-bottom: 0.5em;
 }

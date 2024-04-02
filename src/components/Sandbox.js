@@ -7,6 +7,7 @@ export default class Sandbox extends Component {
     super()
     this.state = {
       flexClass: 'flex-row',
+      wrap: 'flex-wrap',
       alignItems: 'align-items-stretch',
       gap: 4,
       itemCount: 0,
@@ -103,7 +104,9 @@ export default class Sandbox extends Component {
     for (const item of this.state.items) {
       items.push(
         html`<div class="sandbox-editor-item">
-          <h4 class="sandbox-editor-item-name border-bottom-dashed">
+          <h4
+            class="sandbox-editor-item-name border-bottom-dashed padding-bottom-sm"
+          >
             Item ${item.id}
           </h4>
 
@@ -189,6 +192,7 @@ export default class Sandbox extends Component {
             ${this.state.flexClass || ''}
             ${this.state.justifyContent || ''}
             ${this.state.alignItems || ''}
+            ${this.state.wrap || ''}
           "
             style=${{ gap: `${this.state.gap}px` }}
           >
@@ -198,7 +202,6 @@ export default class Sandbox extends Component {
         <div class="sandbox-editor">
           <div class="sandbox-section">
             <h3>Flex Container</h3>
-
             <div>
               <label for="flexDirection">Flex Direction</label>
               <select
@@ -263,6 +266,20 @@ export default class Sandbox extends Component {
                 <option value="align-items-stretch">stretch</option>
               </select>
             </div>
+
+            <div>
+              <label for="wrap">Flex Wrap</label>
+              <select
+                id="wrap"
+                value=${this.state.wrap}
+                onChange=${(e) => this.setState({ wrap: e.target.value })}
+              >
+                <option value="flex-wrap">wrap</option>
+                <option value="flex-wrap-reverse">wrap-reverse</option>
+                <option value="flex-nowrap">nowrap</option>
+              </select>
+            </div>
+
             <div class="sandbox-section">
               <h3 class="flex gap-1">
                 Flex Items
