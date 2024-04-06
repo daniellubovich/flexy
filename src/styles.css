@@ -17,7 +17,7 @@ body {
   height: 100vh;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   h1 {
     padding: 0 16px;
   }
@@ -176,6 +176,19 @@ li > a:hover {
     border-radius: 3px;
 
     .sandbox-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .sandbox-edit {
+        flex: 1 1 auto;
+        padding: 4px;
+        min-width: 40px;
+        :focus {
+          outline: none;
+        }
+      }
+
       &:nth-child(odd) {
         background-color: var(--alt-background-color, #f0f0f0);
       }

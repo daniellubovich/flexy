@@ -29,7 +29,7 @@ export default class Sandbox extends Component {
     this.state.items.push({
       id: this.state.itemCount,
       order: 0,
-      flex: '0 0 50px',
+      flex: '0 0 auto',
       alignSelf: 'auto',
     })
     this.setState({ items: this.state.items, itemCount: this.state.itemCount })
@@ -87,6 +87,7 @@ export default class Sandbox extends Component {
           style=${{ flex: item.flex, order: item.order }}
         >
           <span class="sandbox-item-name">${item.id}</span>
+          <div class="sandbox-edit" contenteditable></div>
         </div>`
       )
     }
