@@ -104,18 +104,18 @@ export default class Sandbox extends Component {
     for (const item of this.state.items) {
       items.push(
         html`<div class="sandbox-editor-item">
-          <h4
+          <h3
             class="sandbox-editor-item-name border-bottom-dashed padding-bottom-sm"
           >
             Item ${item.id}
-          </h4>
+          </h3>
 
           <div class="flex-style-container">
             <div>
-              <label for="flex-grow">Flex Grow</label>
+              <label for="flex-grow-${item.id}">Flex Grow</label>
               <input
                 type="number"
-                id="flex-grow"
+                id="flex-grow-${item.id}"
                 min="0"
                 value=${this.getFlexGrow(item.flex)}
                 onInput=${(e) => this.setFlexGrow(item.id, e.target.value)}
@@ -123,10 +123,10 @@ export default class Sandbox extends Component {
             </div>
 
             <div>
-              <label for="flex-shrink">Flex Shrink</label>
+              <label for="flex-shrink-${item.id}">Flex Shrink</label>
               <input
                 type="number"
-                id="flex-shrink"
+                id="flex-shrink-${item.id}"
                 min="0"
                 value=${this.getFlexShrink(item.flex)}
                 onInput=${(e) => this.setFlexShrink(item.id, e.target.value)}
@@ -134,10 +134,10 @@ export default class Sandbox extends Component {
             </div>
 
             <div>
-              <label for="flex-basis">Flex Basis</label>
+              <label for="flex-basis-${item.id}">Flex Basis</label>
               <input
                 type="text"
-                id="flex-basis"
+                id="flex-basis-${item.id}"
                 value=${this.getFlexBasis(item.flex)}
                 onInput=${(e) => this.setFlexBasis(item.id, e.target.value)}
               />
@@ -146,9 +146,10 @@ export default class Sandbox extends Component {
 
           <div class="flex-style-container">
             <div>
-              <label for="order">Flex Order</label>
+              <label for="order-${item.id}">Flex Order</label>
               <input
                 type="number"
+                id="order-${item.id}"
                 value=${item.order}
                 min="0"
                 onInput=${(e) =>
@@ -157,9 +158,10 @@ export default class Sandbox extends Component {
             </div>
 
             <div>
-              <label for="align-self">Align Self</label>
+              <label for="align-self-${item.id}">Align Self</label>
               <select
                 value=${item.alignSelf}
+                id="align-self-${item.id}"
                 onChange=${(e) =>
                   this.updateItem(item.id, 'alignSelf', e.target.value)}
               >
@@ -201,7 +203,7 @@ export default class Sandbox extends Component {
         </div>
         <div class="sandbox-editor">
           <div class="sandbox-section">
-            <h3>Flex Container</h3>
+            <h2>Flex Container</h2>
             <div>
               <label for="flexDirection">Flex Direction</label>
               <select
@@ -281,7 +283,7 @@ export default class Sandbox extends Component {
             </div>
 
             <div class="sandbox-section">
-              <h3 class="flex gap-1">
+              <h2 class="flex gap-1">
                 Flex Items
                 <div class="sandbox-item-actions">
                   <svg
@@ -297,7 +299,7 @@ export default class Sandbox extends Component {
                     <use href="/src/images/feather-sprite.svg#minus" />
                   </svg>
                 </div>
-              </h3>
+              </h2>
               ${this.getItemsForEditor()}
             </div>
           </div>
