@@ -284,6 +284,11 @@ li > a:hover {
     }
   }
 }
+
+.flex {
+  display: flex;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -342,6 +347,10 @@ li > a:hover {
 
 .align-items-stretch {
   align-items: stretch;
+}
+
+.gap-05 {
+  gap: 0.5em;
 }
 
 .gap-1 {

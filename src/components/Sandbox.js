@@ -284,20 +284,20 @@ export default class Sandbox extends Component {
             </div>
 
             <div class="sandbox-section">
-              <h2 class="flex gap-1">
+              <h2 class="flex gap-05">
                 Flex Items
-                <div class="sandbox-item-actions">
-                  <svg
-                    class="feather clickable"
-                    onClick=${() => this.addItem()}
-                  >
-                    <use href="/src/images/feather-sprite.svg#plus" />
-                  </svg>
+                <div class="sandbox-item-actions flex align-items-center">
                   <svg
                     class="feather clickable"
                     onClick=${() => this.removeItem()}
                   >
                     <use href="/src/images/feather-sprite.svg#minus" />
+                  </svg>
+                  <svg
+                    class="feather clickable"
+                    onClick=${() => this.addItem()}
+                  >
+                    <use href="/src/images/feather-sprite.svg#plus" />
                   </svg>
                 </div>
               </h2>
